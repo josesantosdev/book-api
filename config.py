@@ -4,6 +4,6 @@ class BaseConfig():
 
 class DevelopmentConfig(BaseConfig):
     DEBUG = False
-    SQLALCHEMY_DATABASE_URI = f'mysql+pymysql://admin:admin123@localhost/books2'
+    SQLALCHEMY_DATABASE_URI = f'mysql+pymysql://root:wsr29yhi@localhost/books'
     DATABASE_CONNECT_OPRTIONS = {}
     JSON_AS_ASCII = False

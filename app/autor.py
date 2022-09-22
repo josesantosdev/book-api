@@ -6,14 +6,20 @@ from sqlalchemy import engine
 
 bp_autor = Blueprint('autors', __name__)
 ash = AutorSchema()
-
+autor_schema = AutorSchema()
+autors_schema = AutorSchema(many=True)
 
 
 @bp_autor.route('/mostrar', methods=['GET'])
 def show():
-    ash = AutorSchema(many=True)
     autors = Autor.query.all()
-    autors_dump = ash.dump(autors)
+    return jsonify(autors_schema.dump(autors)), 200
+
+@bp_autor.route('/mostrar/<id>', methods=['GET'])
+def show_unique(id):
+    ash = AutorSchema()
+    autor = Autor.query.filter_by(id_autor=id).first_or_404()
+    autors_dump = ash.dump(autor)
     return jsonify(autors_dump), 200
 
     
