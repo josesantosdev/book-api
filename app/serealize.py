@@ -40,6 +40,6 @@ class BookSchema(SQLAlchemyAutoSchema):
         autor_id = fields.Integer()
 
     _links = ma.Hyperlinks({
-        "colletion": ma.URLFor("books.show"),
+        "colletion": ma.URLFor("books.show")
     })
 
